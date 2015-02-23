@@ -84,7 +84,15 @@ $('#lienDrop').click(function()
 										{id:$botToChange,newDate:$newDate},
 										function ($resp)
 										{
-											$('#changelastHarvestresult').html('lastharvest date changed to '+$newDate+ ' for the bot with id '+$botToChange +' --->  '+$resp);
+                                            if ($resp==1)
+                                            {
+                                                $('#changelastHarvestresult').html('lastharvest date changed to '+$newDate+ ' for the bot with id '+$botToChange +' --->  refresh  browser to see the playlist available with new lastharvestDate');
+                                            }
+                                            else
+                                            {
+                                                $('#changelastHarvestresult').html('lastharvest date couldn\'t be changed');
+                                            }
+
 										}										
 									)								
 									

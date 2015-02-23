@@ -25,51 +25,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BDDTools.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDTools.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-40.0" vertical-offset="3210" max-vertical-offset="4828">
-              <caret line="262" column="9" selection-start-line="262" selection-start-column="9" selection-end-line="262" selection-end-column="9" />
-              <folding>
-                <element signature="n#findLastharvest#0;n#!!top" expanded="false" />
-                <marker date="1424707672763" expanded="true" signature="1892:1953" placeholder="UPDATE robot..." />
-                <marker date="1424707672763" expanded="true" signature="2820:2883" placeholder="UPDATE robot..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="auth.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38477367" vertical-offset="0" max-vertical-offset="1683">
-              <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+            <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="1683">
+              <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BDDChangeLastHarvest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDChangeLastHarvest.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="391">
-              <caret line="1" column="57" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
+            <state vertical-scroll-proportion="-3.0" vertical-offset="177" max-vertical-offset="1632">
+              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BDDCreateBot.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDCreateBot.php">
+      <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/bootstrap.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1190">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="4" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+              <caret line="4" column="116985" selection-start-line="4" selection-start-column="116985" selection-end-line="4" selection-end-column="116985" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap-theme.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/bootstrap-theme.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+              <caret line="4" column="19597" selection-start-line="4" selection-start-column="19597" selection-end-line="4" selection-end-column="19597" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/jquery.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
-                <element signature="e#6#63#0#PHP" expanded="true" />
-                <marker date="1424707404910" expanded="true" signature="714:974" placeholder="INSERT INTO ..." />
-                <marker date="1424707404910" expanded="true" signature="1040:1153" placeholder="SELECT id FR..robots..." />
-                <marker date="1424707404910" expanded="true" signature="1339:1486" placeholder="INSERT INTO ..." />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/bootstrap.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+              <caret line="12" column="2881" selection-start-line="12" selection-start-column="2881" selection-end-line="12" selection-end-column="2881" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap-datepicker.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/bootstrap-datepicker.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <caret line="0" column="26799" selection-start-line="0" selection-start-column="26799" selection-end-line="0" selection-end-column="26799" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,46 +119,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bdd.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bdd.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bdd.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.230769" vertical-offset="60" max-vertical-offset="748">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3148148" vertical-offset="0" max-vertical-offset="731">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BDDCreatePlaylist.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDCreatePlaylist.php">
+      <file leaf-file-name="handler.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/handler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1088">
-              <caret line="3" column="66" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3077">
+              <caret line="88" column="242" selection-start-line="88" selection-start-column="242" selection-end-line="88" selection-end-column="242" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BDDdeletePlaylists.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDdeletePlaylists.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="765">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="4" selection-end-column="57" />
-              <folding>
-                <element signature="e#6#63#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BDDPlaylist.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDPlaylist.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1377">
-              <caret line="3" column="107" selection-start-line="3" selection-start-column="107" selection-end-line="3" selection-end-column="107" />
-              <folding>
-                <element signature="n#searchMyChannel#0;n#!!top" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -152,9 +153,7 @@
         <option value="$PROJECT_DIR$/TODO.txt" />
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/userDatas.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/myTv.php" />
-        <option value="$PROJECT_DIR$/js/handler.js" />
         <option value="$PROJECT_DIR$/servicesPHP_SQL/BDDPlaylistTools.php" />
         <option value="$PROJECT_DIR$/servicesPHP_SQL/BDDChangeLastHarvest.php" />
         <option value="$PROJECT_DIR$/servicesPHP_SQL/BDDCreateBot.php" />
@@ -162,8 +161,15 @@
         <option value="$PROJECT_DIR$/servicesPHP_SQL/BDDCreatePlaylist.php" />
         <option value="$PROJECT_DIR$/servicesPHP_SQL/BDDPlaylist.php" />
         <option value="$PROJECT_DIR$/servicesPHP_SQL/BDDTools.php" />
-        <option value="$PROJECT_DIR$/bdd.php" />
+        <option value="$PROJECT_DIR$/js/bootstrap.min.js" />
+        <option value="$PROJECT_DIR$/js/bootstrap-datepicker.min.js" />
+        <option value="$PROJECT_DIR$/js/jquery.min.js" />
+        <option value="$PROJECT_DIR$/css/bootstrap-theme.min.css" />
+        <option value="$PROJECT_DIR$/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/js/handler.js" />
         <option value="$PROJECT_DIR$/auth.php" />
+        <option value="$PROJECT_DIR$/bdd.php" />
       </list>
     </option>
   </component>
@@ -172,9 +178,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="223" />
-    <option name="y" value="77" />
-    <option name="width" value="1856" />
+    <option name="x" value="495" />
+    <option name="y" value="188" />
+    <option name="width" value="2017" />
     <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -216,6 +222,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -280,7 +300,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="223" y="77" width="1856" height="1000" extended-state="0" />
+    <frame x="495" y="188" width="2017" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -290,7 +310,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11956522" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10994503" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -339,58 +359,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="153">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/handler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1833" max-vertical-offset="2873">
-          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDPlaylist.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="1275">
-          <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-          <folding>
-            <element signature="n#searchMyChannel#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDChangeLastHarvest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="323">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDPlaylist.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="1700">
-          <caret line="63" column="12" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
-          <folding>
-            <element signature="n#searchMyChannel#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDTools.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2868" max-vertical-offset="4556">
           <caret line="194" column="5" selection-start-line="194" selection-start-column="5" selection-end-line="194" selection-end-column="5" />
           <folding>
             <element signature="n#findLastharvest#0;n#!!top" expanded="false" />
-            <marker date="1424707672763" expanded="true" signature="1892:1953" placeholder="UPDATE robot..." />
-            <marker date="1424707672763" expanded="true" signature="2820:2883" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
           </folding>
         </state>
       </provider>
@@ -479,8 +455,8 @@
           <caret line="214" column="39" selection-start-line="214" selection-start-column="39" selection-end-line="214" selection-end-column="39" />
           <folding>
             <element signature="n#findLastharvest#0;n#!!top" expanded="false" />
-            <marker date="1424707672763" expanded="true" signature="1892:1953" placeholder="UPDATE robot..." />
-            <marker date="1424707672763" expanded="true" signature="2820:2883" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
           </folding>
         </state>
       </provider>
@@ -579,8 +555,8 @@
           <caret line="214" column="39" selection-start-line="214" selection-start-column="39" selection-end-line="214" selection-end-column="39" />
           <folding>
             <element signature="n#findLastharvest#0;n#!!top" expanded="false" />
-            <marker date="1424707672763" expanded="true" signature="1892:1953" placeholder="UPDATE robot..." />
-            <marker date="1424707672763" expanded="true" signature="2820:2883" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
           </folding>
         </state>
       </provider>
@@ -616,8 +592,8 @@
           <caret line="222" column="40" selection-start-line="222" selection-start-column="34" selection-end-line="222" selection-end-column="40" />
           <folding>
             <element signature="n#findLastharvest#0;n#!!top" expanded="false" />
-            <marker date="1424707672763" expanded="true" signature="1892:1953" placeholder="UPDATE robot..." />
-            <marker date="1424707672763" expanded="true" signature="2820:2883" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
           </folding>
         </state>
       </provider>
@@ -653,8 +629,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#findLastharvest#0;n#!!top" expanded="false" />
-            <marker date="1424707672763" expanded="true" signature="1892:1953" placeholder="UPDATE robot..." />
-            <marker date="1424707672763" expanded="true" signature="2820:2883" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
           </folding>
         </state>
       </provider>
@@ -717,22 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.76923" vertical-offset="618" max-vertical-offset="1632">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/handler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6076923" vertical-offset="1901" max-vertical-offset="2941">
-          <caret line="149" column="26" selection-start-line="149" selection-start-column="26" selection-end-line="149" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDPlaylist.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1377">
@@ -747,6 +707,101 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1088">
           <caret line="3" column="66" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDCreateBot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1190">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="4" selection-end-column="57" />
+          <folding>
+            <element signature="e#6#63#0#PHP" expanded="true" />
+            <marker date="1424707404910" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1424707404910" expanded="true" signature="-1:-1" placeholder="SELECT id FR..robots..." />
+            <marker date="1424707404910" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDChangeLastHarvest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="391">
+          <caret line="1" column="57" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDTools.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-40.0" vertical-offset="3210" max-vertical-offset="4828">
+          <caret line="262" column="9" selection-start-line="262" selection-start-column="9" selection-end-line="262" selection-end-column="9" />
+          <folding>
+            <element signature="n#findLastharvest#0;n#!!top" expanded="false" />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
+            <marker date="1424707672763" expanded="true" signature="-1:-1" placeholder="UPDATE robot..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDdeletePlaylists.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="765">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="4" selection-end-column="57" />
+          <folding>
+            <element signature="e#6#63#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/bootstrap.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <caret line="12" column="2881" selection-start-line="12" selection-start-column="2881" selection-end-line="12" selection-end-column="2881" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/bootstrap-datepicker.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="499">
+          <caret line="0" column="26799" selection-start-line="0" selection-start-column="26799" selection-end-line="0" selection-end-column="26799" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap-theme.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+          <caret line="4" column="19597" selection-start-line="4" selection-start-column="19597" selection-end-line="4" selection-end-column="19597" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+          <caret line="4" column="116985" selection-start-line="4" selection-start-column="116985" selection-end-line="4" selection-end-column="116985" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0" vertical-offset="177" max-vertical-offset="1632">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -769,61 +824,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDCreateBot.php">
+    <entry file="file://$PROJECT_DIR$/js/handler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1190">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="4" selection-end-column="57" />
-          <folding>
-            <element signature="e#6#63#0#PHP" expanded="true" />
-            <marker date="1424707404910" expanded="true" signature="714:974" placeholder="INSERT INTO ..." />
-            <marker date="1424707404910" expanded="true" signature="1040:1153" placeholder="SELECT id FR..robots..." />
-            <marker date="1424707404910" expanded="true" signature="1339:1486" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDChangeLastHarvest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="391">
-          <caret line="1" column="57" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDTools.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-40.0" vertical-offset="3210" max-vertical-offset="4828">
-          <caret line="262" column="9" selection-start-line="262" selection-start-column="9" selection-end-line="262" selection-end-column="9" />
-          <folding>
-            <element signature="n#findLastharvest#0;n#!!top" expanded="false" />
-            <marker date="1424707672763" expanded="true" signature="1892:1953" placeholder="UPDATE robot..." />
-            <marker date="1424707672763" expanded="true" signature="2820:2883" placeholder="UPDATE robot..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/servicesPHP_SQL/BDDdeletePlaylists.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="765">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="4" selection-end-column="57" />
-          <folding>
-            <element signature="e#6#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bdd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.230769" vertical-offset="60" max-vertical-offset="748">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3077">
+          <caret line="88" column="242" selection-start-line="88" selection-start-column="242" selection-end-line="88" selection-end-column="242" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/auth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38477367" vertical-offset="0" max-vertical-offset="1683">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+        <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="1683">
+          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bdd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3148148" vertical-offset="0" max-vertical-offset="731">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>

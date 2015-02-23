@@ -8,7 +8,6 @@ class bddConnect {
 	private function __construct(){
 			try
 			{
-
 			self::$_bdd = new PDO('mysql:host=yourhost;dbname=yourDB;charset=utf8', 'user', 'password');
 			}
 			catch (Exception $e)
