@@ -71,10 +71,24 @@ $('#lienDrop').click(function()
 }) ;
 
 
+// handler select bot checkBox
+$('img').click(function(){
+                $id=$(this).attr('id');
+                $botId=$id.substring(9, ($id.length));
+                if ($id.substring(0,9)=='selectBot') {
+
+                    // voir pour utiliser les classes pour reconnaitre les boutons
+                    //$('#selectBot
+
+
+                }
+
+});
+
 // handler changeLastharvest Button
   $('#changeLastHarvest').click(function(){
 										
-									$botToChange=$('#tempId').text();
+									$botToChange=$('#botToChange').val();
 									$newDate=$('#newlastharvest').val();
 									
 									
@@ -127,7 +141,7 @@ $('#lienDrop').click(function()
 
 // handler clear all playlist button
 	$('#clearplaylists').click(function (){
-										alert ('php clear');
+
 										$.get(
 											'servicesPHP_SQL/BDDdeletePlaylists.php',
 												function($resp){
@@ -137,7 +151,7 @@ $('#lienDrop').click(function()
 									});
 							
 	// handler harvest button
-	$('button').click(function ()
+	$('.harvest').click(function ()
 							{
 								$id=$(this).attr('id');		
 								$botId=$id.substring(7, ($id.length));
@@ -148,12 +162,203 @@ $('#lienDrop').click(function()
 										{ id: $botId },
 										function ($resp)
 										{
-                                         $('#vidPlayer').html('<iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed?listType=playlist&list='+ $.trim($resp)+'" frameborder="0"/>');
+
+                                            $botVidContainer='#botNewVids'+$botId;
+                                         $($botVidContainer).html('<iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed?listType=playlist&list='+ $.trim($resp)+'" frameborder="0"/>');
                                             //window.open('https://www.youtube.com/watch?v=_IrMqQkR8cU&list='+$resp);
 										}
 									)					
 								}
 							});
+
+
+
+$('.selectSubsForNewBot').click(function(){
+    if ($(this).attr('src')=='res/unchecked_checkbox.png')
+    {
+        $(this).attr('src', 'res/checked_checkbox.png');
+    }else{
+        $(this).attr('src', 'res/unchecked_checkbox.png');
+    }
+
+    if ($(this).attr('id')=='all'){
+        $newState=$(this).attr('src');
+        $('.selectSubsForNewBot').each(function(){
+           $(this).attr('src',$newState);
+        });
+    }
+    else{
+            $('#all').attr('src','res/unchecked_checkbox.png');
+    }
+});
+
+// handler delete BotChannel Button
+$('body').on('click', '.delBotChan',function(){
+        $chanId=$(this).attr('id');
+        $botId=$(this).attr('name');
+
+    $.get(
+        'servicesPHP_SQL/BDDDeleteBotChan.php',
+        {chanId: $chanId, botId: $botId},
+        function ($resp){
+                $('#botChannels').append('<div>delete resp :'+$resp+'</div>');
+            $toRemove='#'+$chanId.substring(10)+$botId;
+
+            $($toRemove).remove();
+
+           //$('.botChan').remove(":contains('.$.')");
+
+        }
+    );
+});
+
+// handler delete bot button
+$('body').on('click','.delBot',function(){
+            $botToDel=$(this).parent().parent().attr('id').substring(9);
+
+            $.get('servicesPHP_SQL/BDDDeleteBot.php',
+                {botId : $botToDel},
+                function ($resp){
+                    $selectToHide='#selectBot'+ $botId;
+                    $botChanToHide='#botChannels' +$botId;
+                    $newVidsToHide='#botNewVids'+$botId;
+
+                    $($selectToHide).remove();
+                    $($botChanToHide).remove();
+                    $($newVidsToHide).remove();
+
+                }
+            );
+});
+
+$('body').on('click','#createBotAll',function(){
+                   $tabChan = '';
+                   $name='All subscriptions';
+                    $first = true;
+                    $preListChanshtml='';
+
+                    $('.selectSubsForNewBot').each(function(){
+
+                        if ($(this).attr('id')!='all'){
+                            if (!$first){
+
+                                $tabChan=$tabChan+';'+$(this).attr('id')+';'+$(this).parent().parent().text();
+                                $preListChanshtml+='<tr id="'+$(this).attr('id')+'"><td><div>'+$(this).parent().parent().text()+'</div></td><td><img class="delBotChan" id="delBotChan'+$(this).attr('id')+'" src="res/delete_icon.png"/></td></tr>';
+                            }else{
+
+                                $tabChan=$(this).attr('id')+';'+$(this).parent().parent().text();
+                                $first=false;
+                                $preListChanshtml+='<tr><td><div>'+$(this).parent().parent().text()+'</div></td><td><img class="delBotChan" id="delBotChan'+$(this).attr('id')+'" src="res/delete_icon.png"/></td></tr>';
+                            }
+
+                        }
+
+                        });
+
+
+
+                            $.get(
+                                'servicesPHP_SQL/BDDCreateBot.php',
+                                {chansTab : $tabChan, name : $name},
+                                function ($code_html){
+
+                        $listChansHtml='<div class="botChannels" id="botChannels'+ $.trim($code_html)+'"><table class="botChans">'+$preListChanshtml+'</table></div></div>';
+                        $newVidsHtml='<table class="botNewVids hide" id="botNewVids'+ $.trim($code_html)+'"><tr><td><button class="btn btn-default" id="harvest' +$.trim($code_html)+'" disabled="disabled">There is no new video</button></td><div id="createBotResp"></div></tr></table></table>';
+
+                        $('#listBots').append('<tr class="selectBot" id="selectBot'+$.trim($code_html)+'"><td>'+$name+'</td><td>just created</td><td>0</td><td><img class="delBot" src="res/delete_icon.png" /></td></tr>');
+                        $('#botsChannels').append($listChansHtml);
+                        $('#botsChannels').find('img').attr('name', $code_html);
+
+                        $('#botChans').find('tr').each(function(){
+                            $newId=$(this).attr('id')+$code_html;
+                            $(this).attr('id',$newId);
+
+                            $botChansCont='#botChannels'+$code_html;
+                            $botNewVidsCont='#botNewVids'+$code_html;
+
+                            $('.botNewVids').addClass('hide');
+                            $('.botChannels').addClass('hide');
+                            $($botChansCont).removeClass('hide');
+                            $($botNewVidsCont).removeClass('hide');
+                        });
+
+                        $('#vidPlayer').append($newVidsHtml);
+                        $('#botToChange').add('<option value="'+ $.trim($code_html) +'">'+$name+'</option>');
+                        $('#createBotAllRow').remove();
+                    });
+
+
+ });
+
+// handler createBot button wiht selected subscriptions
+$('body').on('click','#createBot',function(){
+
+    $name=$('#createName').val();
+    if ($name=='') $name='No Name';
+    $first='true';
+    $preListChanshtml='';
+
+    $('.selectSubsForNewBot').each(function(){
+
+        if ($(this).attr('src')=='res/checked_checkbox.png'){
+            if ($first=='false'){
+                $resp=$resp+';'+$(this).attr('id')+';'+$(this).parent().parent().text();
+                $preListChanshtml+='<tr id="'+$(this).attr('id')+'"><td><div>'+$(this).parent().parent().text()+'</div></td><td><img class="delBotChan" id="delBotChan'+$(this).attr('id')+'" src="res/delete_icon.png"/></td></tr>';
+            }else{
+
+                $resp=$(this).attr('id')+';'+$(this).parent().parent().text();
+                $first='false';
+                $preListChanshtml+='<tr><td><div>'+$(this).parent().parent().text()+'</div></td><td><img class="delBotChan" id="delBotChan'+$(this).attr('id')+'" src="res/delete_icon.png"/></td></tr>';
+            }
+        }
+    }
+    );
+
+
+    $.get(
+        'servicesPHP_SQL/BDDCreateBot.php',
+        {chansTab : $resp, name : $name},
+        function ($code_html){
+
+            $listChansHtml='<div class="botChannels" id="botChannels'+ $.trim($code_html)+'"><table class="botChans">'+$preListChanshtml+'</table></div></div>';
+            $newVidsHtml='<table class="botNewVids hide" id="botNewVids'+ $.trim($code_html)+'"><tr><td><button class="btn btn-default" id="harvest' +$.trim($code_html)+'" disabled="disabled">There is no new video</button></td><div id="createBotResp"></div></tr></table></table>';
+
+            $('#listBots').append('<tr class="selectBot" id="selectBot'+$.trim($code_html)+'"><td>'+$name+'</td><td>just created</td><td>0</td><td><img class="delBot" src="res/delete_icon.png" /></td></tr>');
+            $('#botsChannels').append($listChansHtml);
+            $('#botsChannels').find('img').attr('name', $code_html);
+            $('#botChans').find('tr').each(function(){
+                $newId=$(this).attr('id')+$code_html;
+                $(this).attr('id',$newId);
+
+                $botChansCont='#botChannels'+$code_html;
+                $botNewVidsCont='#botNewVids'+$code_html;
+
+                $('.botNewVids').addClass('hide');
+                $('.botChannels').addClass('hide');
+                $($botChansCont).removeClass('hide');
+                $($botNewVidsCont).removeClass('hide');
+
+                $('#botToChange').add('<option value="'+ $.trim($code_html) +'">'+$name+'</option>');
+                $('#vidPlayer').append($newVidsHtml);
+            });
+        });
+});
+
+// handler selectBot Display
+$('body').on('click','.selectBot',function (){
+    $botId= $(this).attr('id').substring(9);
+
+    $('.selectBot').css('background-color','#ffffff');
+    $(this).css('background-color','#dddddd');
+    $botChansCont='#botChannels'+$botId;
+    $botNewVidsCont='#botNewVids'+$botId;
+
+    $('.botNewVids').addClass('hide');
+    $('.botChannels').addClass('hide');
+    $($botChansCont).removeClass('hide');
+    $($botNewVidsCont).removeClass('hide');
+});
+
 
 //handler createbot button
   $('#createbot').click(function  ()
@@ -170,6 +375,9 @@ $('#lienDrop').click(function()
 								);
 							}
   );
- 
 
 
+function removeClass($id, $class)
+{
+    document.getElementById($id).className =document.getElementById($id.className.replace($class,''));
+}

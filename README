@@ -1,5 +1,4 @@
-
-Learning and testing code of what is expected to be a Youtube playlist Manager : http://marabot.twomini.com/  (HTML/CSS/javascript/PHP/mySQL)
+Learning and testing code of what is expected to be a Youtube playlist Manager.
 
 only one functionality avaible at this time:
  - creation of a playlist with all videos from your subscriptions since your last connection on this web-application (not last connection on youtube)

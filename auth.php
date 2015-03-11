@@ -6,8 +6,11 @@ require_once 'google-api-php-client/autoload.php';
 session_start();
 $htmlBody='';
 $htmlTest='';
-$infoBot='';
+$newVidsContainer='';
 $subs='';
+$testTools='';
+$botChannels='';
+
 
 /////////////////////// Authentification Oauth
 $OAUTH2_CLIENT_ID ='YOUR_CLIENT_ID';
@@ -83,9 +86,9 @@ if ($client->getAccessToken()) {
   
   $authUrl = $client->createAuthUrl();
   $htmlBody = <<<END
-  <h3>Authorization Required</h3>
-  <p>You need to <a href="$authUrl">Click here to authorize access to Youtube Account</a> before proceeding.<p>
-  <p> state : $stateStr </p>
+
+  <br><div class="text-center"><p>You need to <a href="$authUrl">Click here to authorize access to Youtube Account</a> before using Youtube Manager.<p></div>
+
 END;
 
 }

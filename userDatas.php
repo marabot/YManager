@@ -6,9 +6,9 @@
 class userDatas{
 	 private $channelId;
 	 private $subs=array();
-	 private $bots=array();
+	 private $bots=array();   // 0 : id (int)   1: userId (string)   2: lastHarvest (timestamp)  3: isCustom (bool)  4:name(string)  5 createdate (timestamp)  6 : channels (array)
 	 private $bdd;
-	 private $botsChannels=array();
+
 	
 	public function __construct($_bdd, $userChannelId, $subscriptionsList)
 	{
@@ -21,8 +21,25 @@ class userDatas{
 		
 		if(!$sqlreqBots === FALSE)
 			{
-				$this->bots=$sqlreqBots->fetchAll();				
+                $botsTemp=$sqlreqBots->fetchAll();
 			}
+
+        foreach($botsTemp as $b)
+        {
+
+
+            $this->bots[$b['id']]=array(  'id'=>$b['id'],
+                                        'userId'=> $b['userId'],
+                                       'lastHarvest'=>$b['lastHarvest'],
+                                       'isCustom'=>$b['isCustom'],
+                                       'name'=>$b['name'],
+                                        'createdate'=>$b['createdate'],
+                                        'channels'=>array()
+
+                );
+
+        }
+
 
 		// retrieveBotsDatas
 		$req='SELECT * FROM botchannel WHERE botId IN (\'';
@@ -33,11 +50,11 @@ class userDatas{
 			if ($countForFirst==0)
 			{
 				
-				$req.=$b[0].'\'';
+				$req.=$b['id'].'\'';
 			}
 			else
 			{
-				$req.=',\''.$b[0].'\'';
+				$req.=',\''.$b['id'].'\'';
 			}
 		$countForFirst++;			
 		}
@@ -45,50 +62,17 @@ class userDatas{
 
 		$reqbotChannels=$this->bdd->query($req);
 
-        // make a array with channelID subscription as key of channelbot array
-        $tabSubs=array();
-        
-        /*
-        // foreach subscriptions of each bot, create a entry in the bots array to store list state
-        foreach($this->getbots() as $bot)
-        {
-            $this->bots['botChannels']=array();
-           // array_push($this->bots,array('botChannels'=>null));
-            foreach($subscriptionsList as $sub)
-            {
-                $this->bots['botChannels'][$sub['snippet']['resourceId']['channelId']]= 0;
-            }
-        }
-*/
 
 		if ($reqbotChannels!=null)
 		{
-			$this->botsChannels=$reqbotChannels->fetchAll();
-            /*
-            foreach($this->getbotsChannels() as $bt)
+            $botsChannelsDatas=$reqbotChannels->fetchAll();
+			//$this->botsChannels=$reqbotChannels->fetchAll();
+
+            foreach($botsChannelsDatas as $bt)
             {
-                $this->bots[$bt['botId']]['botChannels'][$bt['channelId']]=$bt['inPlaylist'];
+                $this->bots[$bt['botId']]['channels'][]=array('channelId'=>$bt['channelId'],'channelTitle'=>$bt['title']);
             }
-            */
 		}
-
-	}
-	
-	//  return 1 if $channelId is in the Channels to harvest by $botId, else return 0
-	public function isInBotList($userdatas,$channelId, $botId){
-
-
-        $resp=0;
-
-        foreach ($userdatas->getbotsChannels() as $botChan)
-        {
-
-            if ($botChan['channelId']==$channelId && $botChan['botId']==$botId )
-            {
-                $resp=$botChan['inPlaylist'];
-            }
-        }
-        return $resp;
     }
 
     // set the $botId Lastharvest value in the database to now. return 1 if succeed, else 0
@@ -162,9 +146,7 @@ class userDatas{
 	public function getbots(){
 		return $this->bots;
 	}
-	public function getbotsChannels(){
-		return $this->botsChannels ;
-	}
+
 		
 }		
 ?>

@@ -14,46 +14,57 @@ session_start();
 	$bdd=bddConnect::getBdd();	
 			
 	$myChannel=$_SESSION['myChannel'];
-	$mysubscriptions=$_SESSION['chansTab'];
-	
-	createBot('MainBot');
+	$chansTemp=explode(';',$_GET['chansTab']);
+    $name=$_GET['name'];
+
+    $i;
+    for($i=0;$i<count($chansTemp);$i=$i+2)
+    {
+        $chans[$i/2]=array('channelId'=>$chansTemp[$i], 'title'=>$chansTemp[$i+1]);
+    }
+
+	createBot($name);
 		
 	function createBot($name){		
 			
-			global $bdd, $myChannel,$mysubscriptions;
+			global $bdd, $myChannel,$chans;
 			$dateCrea=time();
-			$name='Main Bot';
 			$bot=-1;
-			
-			$sqlreqCreateBot=$bdd->exec('INSERT INTO robots(userId,
+
+        try{
+            $sqlreqCreateBot=$bdd->exec('INSERT INTO robots(userId,
 															lastHarvest,
-															createdate, 
+															createdate,
 															name
-															 ) 
+															 )
 												VALUES (\''.$myChannel.'\',\''
-															.$dateCrea.'\',\''
-															.$dateCrea.'\',\''
-															.$name .'\') '
-															);
-															
-			$sqlreqBotId=$bdd->query('SELECT id FROM robots
+                .$dateCrea.'\',\''
+                .$dateCrea.'\',\''
+                .$name .'\') '
+            );
+
+            $sqlreqBotId=$bdd->query('SELECT id FROM robots
 												WHERE userId=\''.$myChannel.'\' AND
 													  createdate=\''.$dateCrea.'\'');
-			$row=$sqlreqBotId->fetch();
-			
-			if (isset($row['id']))
-				{			
-						$bot=$row['id'];					
-				}
+            $row=$sqlreqBotId->fetch();
 
-			foreach($mysubscriptions as $chan)
-			{
-				$reqcreatechanbot=$bdd->exec('INSERT INTO botchannel (botId, channelId, inPlaylist)
-															VALUES (\''.$bot.'\',\''.$chan['snippet']['resourceId']['channelId'].'\',true)'
-													);
+            if (isset($row['id']))
+            {
+                $bot=$row['id'];
+                echo $row['id']; // return of this php script  : botId
+            }
 
-			}
-			return $sqlreqCreateBot;
+            foreach($chans as $chan)
+            {
+                $bdd->exec('INSERT INTO botchannel (botId, channelId, title)
+															VALUES (\''.$bot.'\',\''.$chan['channelId'].'\',\''.$chan['title'] .'\')'
+                );
+            }
+        }
+        catch(exception $e){
+            echo $e;
+        }
+
 	}			
 	
 	function fixObject ($object)

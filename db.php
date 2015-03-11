@@ -2,28 +2,28 @@
 <?php
 //////////////// Singleton DataBase Connection  //////////////////////
 //////////////////////////////////////////////////////////////////////
-class bddConnect {
-    private static $_bdd;
+class dbConnect {
+    private static $_db;
     
 	private function __construct(){
 			try
 			{
-			self::$_bdd = new PDO('mysql:host=yourhost;dbname=yourDB;charset=utf8', 'user', 'password');
+            self::$_bdd = new PDO('mysql:host=yourhost;dbname=yourDB;charset=utf8', 'user', 'password');
 			}
 			catch (Exception $e)
 			{
-			die('Erreur : ' . $e->getMessage());
+			    die('Erreur : ' . $e->getMessage());
 			}	
 	}
 	
-    public static function getBdd() {
+    public static function getDb() {
 				
-        if (is_null(self::$_bdd))
+        if (is_null(self::$_db))
 		{
-			new bddConnect();		
+			new dbConnect();
 		}
 		
-		return self::$_bdd;		
+		return self::$_db;
     }
 	
 	 private function __clone()
@@ -34,5 +34,4 @@ class bddConnect {
     {
     }	
 }
-
 ?> 

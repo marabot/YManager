@@ -10,7 +10,7 @@ function harvest($botId) {
 
 	 $chansToHarvest=getChansFromBots($botId);
 
-	 $dateAfter=findLastharvest($botId);
+	 $dateAfter=$userDatas->getBots()[$botId]['lastHarvest'];
 	
 	 $videoList=getsVideosFromChans($chansToHarvest, $dateAfter, '-1');	// tableau des videos
      $titre='videos du '.date('r',$dateAfter).' au '.date('r');
@@ -102,41 +102,31 @@ function changeLastHarvest($botId,$newDate)
 function createPrivPlaylist($title, $description){
 
 	global $youtube;
-	
-	//create snippet
-	$playlistSnippet=new Google_Service_YouTube_PlaylistSnippet();
-	$playlistSnippet->setTitle($title);
-	$playlistSnippet->setDescription($description);
-	
-	// set status
-	$playlistStatus=new Google_Service_YouTube_PlaylistStatus();
-	$playlistStatus->setPrivacyStatus('public');
-	
-	// create playlist and associate resources
-	$youTubePlaylist = new Google_Service_YouTube_Playlist();
-    $youTubePlaylist->setSnippet($playlistSnippet);
-    $youTubePlaylist->setStatus($playlistStatus);
 
-	// call of the create method
-	$playlistResponse = $youtube->playlists->insert('snippet,status',  $youTubePlaylist, array());
+    try{//create snippet
+        $playlistSnippet=new Google_Service_YouTube_PlaylistSnippet();
+        $playlistSnippet->setTitle($title);
+        $playlistSnippet->setDescription($description);
+
+        // set status
+        $playlistStatus=new Google_Service_YouTube_PlaylistStatus();
+        $playlistStatus->setPrivacyStatus('public');
+
+        // create playlist and associate resources
+        $youTubePlaylist = new Google_Service_YouTube_Playlist();
+        $youTubePlaylist->setSnippet($playlistSnippet);
+        $youTubePlaylist->setStatus($playlistStatus);
+
+        // call of the create method
+        $playlistResponse = $youtube->playlists->insert('snippet,status',  $youTubePlaylist, array());
+    }
+    catch(exception $e){
+        echo $e;
+    }
   
 	return $playlistResponse;
 }
 
-// return the $botId lastHarvest value from the object userDatas
-function findLastharvest($botId){
-	global $userDatas;
-
-	foreach($userDatas->getBots() as $bot)
-	{		
-		if ($bot[0]==$botId)
-		{
-			$lastHarvest=$bot[2];
-			
-		}
-		return $lastHarvest;
-	}	
-}
 
 // fill $newPlaylist with the $videoList Videos, return 1 if ok, else 0
 function AddTabVideosToChans($newPlaylist,$videoList){
@@ -152,47 +142,47 @@ function AddTabVideosToChans($newPlaylist,$videoList){
 }	
 
 // Add the $vidId video to the $playListId playlist(already created), return 1 if ok, else 0
-function addVid($vidId, $playlistId){
-	
-	global $youtube;
-	
-	// defining the resource
-	$resourceId = new Google_Service_YouTube_ResourceId();
-    $resourceId->setVideoId($vidId);
-    $resourceId->setKind('youtube#video');
-	
-	//  snippet for the playlist item. 
-    $playlistItemSnippet = new Google_Service_YouTube_PlaylistItemSnippet();
-    $playlistItemSnippet->setTitle('First video in the test playlist');
-    $playlistItemSnippet->setPlaylistId($playlistId);
-    $playlistItemSnippet->setResourceId($resourceId);
+function addVid($vidId, $playlistId)
+{
 
-	//create playlistItem and add it
-	$playlistItem = new Google_Service_YouTube_PlaylistItem();
-	
-    $playlistItem->setSnippet($playlistItemSnippet);
-	
-    $playlistItemResponse = $youtube->playlistItems->insert(
-        'snippet,contentDetails', $playlistItem, array());
-	
+    global $youtube;
+
+    try {
+        // defining the resource
+        $resourceId = new Google_Service_YouTube_ResourceId();
+        $resourceId->setVideoId($vidId);
+        $resourceId->setKind('youtube#video');
+
+        //  snippet for the playlist item.
+        $playlistItemSnippet = new Google_Service_YouTube_PlaylistItemSnippet();
+        $playlistItemSnippet->setTitle('First video in the test playlist');
+        $playlistItemSnippet->setPlaylistId($playlistId);
+        $playlistItemSnippet->setResourceId($resourceId);
+
+        //create playlistItem and add it
+        $playlistItem = new Google_Service_YouTube_PlaylistItem();
+
+        $playlistItem->setSnippet($playlistItemSnippet);
+
+        $playlistItemResponse = $youtube->playlistItems->insert(
+            'snippet,contentDetails', $playlistItem, array());
+    }
+    catch(exception $e){
+       echo $e;
+    }
 	return $playlistItemResponse;
-
 }
+
 
 // retrieve $botId Channels from object userDatas, return a channelId Array
 function getChansFromBots($botId){
         global $userDatas;
 		$chans=array();
 		
-		foreach($userDatas->getbotsChannels() as $botChannel)
+		foreach($userDatas->getbots()[$botId]['channels'] as $chan)
 		{
-			
-			if ($botChannel[0]==$botId){
-			
-			$chans[]=$botChannel[1];
-			}
-		}		
-		
+			$chans[]=$chan['channelId'];
+		}
 		return $chans;
 	}
 	
@@ -203,11 +193,8 @@ function getsVideosFromChans($chansList, $dateAfter, $dateBefore){
 
 	  foreach($chansList as $chan)
 	{
-		//$htmlBody.='-----------------------<br><div>channel : '.$chan.'</div>';			
-		// retrieve videos from Channel $chan
-		$videoListToMerge=searchVidsFromTo($chan,$dateAfter,$dateBefore);	
-		//$videoListToMerge=searchVidsFromTo($chan['id'],$dateAfter,$dateBefore);	
-		
+
+		$videoListToMerge=searchVidsFromTo($chan,$dateAfter,$dateBefore);
 		$videoList=array_merge($videoList, $videoListToMerge);				
 	}
 	return $videoList;	  
@@ -219,48 +206,54 @@ function searchVidsFromTo($chan, $dateAfter, $dateBefore){
 
 	global $youtube;	
 	$videoList=array();
-	   
-	$dateAfterRFC=date('c',$dateAfter);
-	if ($dateBefore!='-1')
-	{
-		$dateBeforeRFC=date('c', $dateBefore);
-	}
 
-	if ($dateBefore=='-1')
-	{
-		$videosResponse=$youtube->search->listSearch('snippet',
-														array(
-																'channelId'=>$chan,
-																'publishedAfter'=>$dateAfterRFC,
-																'order'=>'date',
-																'maxResults'=>'50',
-																'type'=>'video'
-															)
-													);
-		
-	}else
-	{
-		$videosResponse=$youtube->search->listSearch('snippet', 
-														array(
-																'channelId'=>$chan,
-																'publishedAfter'=>$dateAfterRFC, 
-																'publishedBefore'=>$dateBeforeRFC,
-																'order'=>'date',
-																'maxResults'=>'50',
-																'type'=>'video'
-															)
-													);		
-	}
 
-		// add Videos to the return array
-		foreach($videosResponse['items'] as $vid)
-		{					 
-			if ($vid['id']['kind']=='youtube#video' )
-			{					
-				//$videoList[]=array("name"=>$vid[],"id"=>$vid['id']['videoId']);		
-				$videoList[]=$vid;		
-			}					
-		}
+    try{
+        $dateAfterRFC=date('c',$dateAfter);
+        if ($dateBefore!='-1')
+        {
+            $dateBeforeRFC=date('c', $dateBefore);
+        }
+
+        if ($dateBefore=='-1')
+        {
+            $videosResponse=$youtube->search->listSearch('snippet',
+                array(
+                    'channelId'=>$chan,
+                    'publishedAfter'=>$dateAfterRFC,
+                    'order'=>'date',
+                    'maxResults'=>'50',
+                    'type'=>'video'
+                )
+            );
+
+        }else
+        {
+            $videosResponse=$youtube->search->listSearch('snippet',
+                array(
+                    'channelId'=>$chan,
+                    'publishedAfter'=>$dateAfterRFC,
+                    'publishedBefore'=>$dateBeforeRFC,
+                    'order'=>'date',
+                    'maxResults'=>'50',
+                    'type'=>'video'
+                )
+            );
+        }
+
+        // add Videos to the return array
+        foreach($videosResponse['items'] as $vid)
+        {
+            if ($vid['id']['kind']=='youtube#video' )
+            {
+                //$videoList[]=array("name"=>$vid[],"id"=>$vid['id']['videoId']);
+                $videoList[]=$vid;
+            }
+        }
+    }
+    catch (exception $e) {
+        echo $e;
+    }
 		
 	return $videoList;
 }

@@ -43,60 +43,12 @@ session_start();
 	
 	$youtube=$_SESSION['youtube'];
 
-/*
-    $plId=$youtube->search->listSearch(
-                                        'snippet',
-                                           array(
-                                                'channelId'=>$myChannel,
-                                               'publishedAfter'=>$dateAfterRFC,
-                                               'maxResults'=>'3'
-                                           )
-                                        );
-*/
 	if ($dateBefore=='-1')
 	{
 		$playlistId=harvest($botId);
 	}
-    /*
-	else{
-        $playlistId=customHarvest($botId, $dateAfter, $dateBefore);
-	}
-
-$test=searchMyChannel();
-echo  $test;
-*/
-
-$test=searchMyChannel();
-
-echo  $test;
-
-// temporary
-function searchMyChannel() {
-    global $youtube, $myChannel;
-    $plId=-1;
-    $lastPl=0;
-    $dateAfterRFC=  date('c', time()-100000);
-
-// TODO : récupérer la dernière playlist
-                        $plSearch=$youtube->playlists->listPlaylists(
-                            'snippet',
-                            array(
-                                'mine'=>true,
-
-                            )
-                        );
-        foreach($plSearch['items'] as $pl)
-        {
 
 
-            if (strtotime($pl['snippet']['publishedAt'])>$lastPl)
-            {
-
-                $lastPl=strtotime($pl['snippet']['publishedAt']);
-                $plId=$pl['id'];
-            }
-        }
-
-        return $plId;}
+echo  $playlistId;
 
 ?>

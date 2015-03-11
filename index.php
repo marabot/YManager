@@ -7,32 +7,25 @@ include 'auth.php';
 <html>
   <head>
   <meta charset="UTF-8">
-
   
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
    
    <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-   
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
-	
  
     <title>Search</title>
 	<script src="js/bootstrap-datepicker.min.js"></script>
-	 
 
   </head>
   <body>
 
-
+<!--
 <div><button class="btn btn-default" id="clearplaylists"> clear playlists  : </button></div>
 	<div id="clearplaylistsResp"> response clear pl</div>
-
+-->
 
 <div class="container">
 
@@ -42,22 +35,28 @@ include 'auth.php';
 					 <h1 class="">Youtube Manager</h1>
 
 					<p class="lead">
-						In one playlist, get all the new videos from your youtube's subscriptions</p>
+						Retrieve in one playlist the last videos from your subscriptions.</p>
+
 				</div>
 		</div>
 
         <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-8">
                     <div class="row">
                         <?=$htmlBody?>
                     </div>
                     <div class="row">
+
+                        <div class="col-md-3" id="botsChannels"><?=$botChannels?></div>
+
                         <div id="vidPlayer">
-                            <?=$infoBot?>
+                            <?=$newVidsContainer?>
                         </div>
                     </div>
                     <div class="row">
-                        <?=$htmlTest?>
+                        <div> </div>
+                        <div><?=$htmlTest?></div>
+
                     </div>
                 </div>
 
@@ -71,15 +70,9 @@ include 'auth.php';
 
 			<BR>
 
-        <div class="row">
-			<span> For Test :Modify lastHarvest Date in database :
-				<div id="lastHarvestDatePicker">
-					<div class="col-md-2 input-group date" id="datePicker">
-						<input type="text" class="form-control" id="newlastharvest"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-					</div>
-					<button  class="btn btn-default" id="changeLastHarvest">change lastharvest Date :</button>
-					<span id="changelastHarvestresult"><span>
-				</div>
+
+        <div class="row" >
+			<?=$testTools?>
 		</div>
 	</div>
 
