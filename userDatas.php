@@ -6,7 +6,7 @@
 class userDatas{
 	 private $channelId;
 	 private $subs=array();
-	 private $bots=array();   // 0 : id (int)   1: userId (string)   2: lastHarvest (timestamp)  3: isCustom (bool)  4:name(string)  5 createdate (timestamp)  6 : channels (array)
+	 private $bots=array();   // 0 : id (int)   1: userId (string)   2: lastHarvest (timestamp)   3:name(string)  4 createdate (timestamp)  5 : channels (array)
 	 private $bdd;
 
 	
@@ -17,32 +17,31 @@ class userDatas{
         $this->subs=$subscriptionsList;
 		
 		//retrieve bots
-		$sqlreqBots=$this->bdd->query('SELECT * FROM robots WHERE userId=\''.$this->channelId.'\'');
+		$sqlreqBots=$this->bdd->query('SELECT * FROM bot WHERE user_id=\''.$this->channelId.'\'');
 		
 		if(!$sqlreqBots === FALSE)
 			{
                 $botsTemp=$sqlreqBots->fetchAll();
-			}
-
-        foreach($botsTemp as $b)
-        {
 
 
-            $this->bots[$b['id']]=array(  'id'=>$b['id'],
-                                        'userId'=> $b['userId'],
-                                       'lastHarvest'=>$b['lastHarvest'],
-                                       'isCustom'=>$b['isCustom'],
-                                       'name'=>$b['name'],
-                                        'createdate'=>$b['createdate'],
-                                        'channels'=>array()
+                foreach($botsTemp as $b)
+                {
 
-                );
 
-        }
+                    $this->bots[$b['id']]=array(  'id'=>$b['id'],
+                                                'user_id'=> $b['user_id'],
+                                               'lastHarvest'=>$b['lastHarvest'],
+                                                'createDate'=>$b['createDate'],
+                                                'name'=>$b['name']
 
+
+                        );
+
+                }
+            }
 
 		// retrieveBotsDatas
-		$req='SELECT * FROM botchannel WHERE botId IN (\'';
+		$req='SELECT * FROM botChannel WHERE botId IN (\'';
 		$countForFirst=0;
 		foreach($this->bots as $b)
 		{
@@ -59,9 +58,9 @@ class userDatas{
 		$countForFirst++;			
 		}
         $req.=')';
-
+        //var_dump($req);
 		$reqbotChannels=$this->bdd->query($req);
-
+        //var_dump($reqbotChannels);
 
 		if ($reqbotChannels!=null)
 		{
@@ -79,7 +78,7 @@ class userDatas{
 	public function setLastHarvestNow($botId)
 	{
 		global $bdd;
-		$resp=$bdd->exec('ALTER robots SET lastharvest=\''.time().'\' WHERE id=\''.$botId.'\'');
+		$resp=$bdd->exec('UPDATE bot SET lastHarvest=\''.time().'\' WHERE id=\''.$botId.'\'');
 		if ($resp==1)
 		{
 			return 1;			
@@ -97,7 +96,7 @@ class userDatas{
 			$dateCrea=time();
 						
 			try{
-				$sqlreqCreateBot=$bdd->exec('INSERT INTO robots(userId,
+				$sqlreqCreateBot=$bdd->exec('INSERT INTO bot(user_id,
 															lastHarvest,
 															createdate, 
 															name
@@ -109,7 +108,7 @@ class userDatas{
 															);
 															
 																											
-					$sqlreqBotId=$bdd->query('SELECT id FROM robots
+					$sqlreqBotId=$bdd->query('SELECT id FROM bot
 														WHERE userId=\''.$myChannel.'\' AND
 															  createdate=\''.$dateCrea.'\'');
 					$row=$sqlreqBotId->fetch();

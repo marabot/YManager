@@ -6,12 +6,12 @@
 
 
 //récup du singleton bdd
-include $_SERVER['DOCUMENT_ROOT'] . '/bdd.php';
-$bdd=bddConnect::getBdd();
+include $_SERVER['DOCUMENT_ROOT'] . '/db.php';
+$bdd=dbConnect::getDb();
 
 $botId=$_GET['botId'];
 
-$reqDelBot=('DELETE FROM robots WHERE (id=\''.$botId.'\')');
+$reqDelBot=('DELETE FROM bot WHERE (id=\''.$botId.'\')');
 
 $bdd->exec($reqDelBot);
 

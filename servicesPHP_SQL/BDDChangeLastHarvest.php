@@ -11,8 +11,8 @@ session_start();
 	$botId=$_GET['id'];
 	$newDate=strtotime($_GET['newDate']);
 		//retrieve Database Connection Singleton
-	include $_SERVER['DOCUMENT_ROOT'] . '/bdd.php';
-	$bdd=bddConnect::getBdd();	
+	include $_SERVER['DOCUMENT_ROOT'] . '/db.php';
+	$bdd=dbConnect::getDb();
 	
 	echo (changeLastHarvest($botId, $newDate));   	
 ?>

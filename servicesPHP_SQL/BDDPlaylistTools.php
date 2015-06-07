@@ -1,42 +1,42 @@
 <?php
 
 function harvest($botId) {
-	 global $youtube, $videoList, $htmlBody, $userdatas,$bdd;
+	 global $videoList;
+
 
 	 $chansToHarvest=getChansFromBots($botId); // récupération des chaines pour un bot spécifique, dans le but de lancer une récolte
-	 	
 
 	 $dateAfter=findLastharvest($botId);
 	
 	 $videoList=getsVideosFromChans($chansToHarvest, $dateAfter, '-1');	// tableau des videos
      $titre='videos du '.date('r',$dateAfter).' au '.date('r');
 
-
     $videoList=orderVideoList($videoList);
-
 
 	 try{
 		$newPlaylist=createPrivPlaylist($titre,' ');
 
 		//var_dump($videoList);
 		AddTabVideosToChans($newPlaylist,$videoList);	
-		changelastHarvest($botId, time());
+		$reqHarvestChange=changelastHarvest($botId, time());
 		//echo'playlistcreated created with '.count($videoList).' new videos';
-		
+		$return=$newPlaylist['id'];
+
 		
 	  } catch (Google_ServiceException $e) {
-		$htmlBody .= sprintf('<p>A service error occurred: <code>%s</code></p>',
-			htmlspecialchars($e->getMessage()));
+		$return="<p>A service error occurred: <code>%s</code></p>',
+			htmlspecialchars($e->getMessage())";
 			
 	  } catch (Google_Exception $e) {
-		$htmlBody .= sprintf('<p>An client error occurred: <code>%s</code></p>',
-			htmlspecialchars($e->getMessage()));			
+         $return= "'<p>An client error occurred: <code>%s</code></p>',
+			htmlspecialchars($e->getMessage())";
 	 }
 
-    return $newPlaylist['id'];
+    //return $return;
+    return $reqHarvestChange;
  }
 
-	
+/*
 function customHarvest($botId, $dateAfter, $dateBefore){
 	 global $youtube, $videoList, $htmlBody, $userdatas,$bdd;	
 			 
@@ -56,7 +56,7 @@ function customHarvest($botId, $dateAfter, $dateBefore){
 		}	
 		
 		AddTabVideosToChans($newPlaylist,$videoListToAdd, $youtube);		
-		$bdd->exec('UPDATE robots SET lastHarvest='.time().' WHERE id='.$botId.''  );
+		$bdd->exec('UPDATE bot SET lastHarvest='.time().' WHERE id='.$botId.''  );
 		echo'playlistcreated created with '.count($videoList).' new videos';
 		
 		
@@ -70,6 +70,7 @@ function customHarvest($botId, $dateAfter, $dateBefore){
 	 }
     return $newPlaylist['id'];
  }
+*/
 
 // classe une liste de vidéo de la plus ancienne à la plus récente
 function orderVideoList($videoList )
@@ -87,10 +88,13 @@ function orderVideoList($videoList )
 function changeLastHarvest($botId,$newDate)
 {
     global $bdd;
-    $req='UPDATE robots SET lastHarvest='.$newDate.' WHERE id='.$botId.'' ;
 
-    return $bdd->exec($req);
+    $botId=(int)$botId;
+    $newDate=(int)$newDate;
+    $req='UPDATE bot SET lastharvest='.trim($newDate).' WHERE id='.trim($botId) ;
 
+    //return $bdd->exec($req);
+    return $req;
 }
 
 

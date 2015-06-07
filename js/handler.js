@@ -164,8 +164,9 @@ $('img').click(function(){
 										{
 
                                             $botVidContainer='#botNewVids'+$botId;
-                                         $($botVidContainer).html('<iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed?listType=playlist&list='+ $.trim($resp)+'" frameborder="0"/>');
+                                         $($botVidContainer).html('<iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed?listType=playlist&list='+ $resp.trim()+'" frameborder="0"/>');
                                             //window.open('https://www.youtube.com/watch?v=_IrMqQkR8cU&list='+$resp);
+                                             $('#title').html($resp);
 										}
 									)					
 								}

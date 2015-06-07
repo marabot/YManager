@@ -30,7 +30,7 @@ include 'auth.php';
 <div class="container">
 
     
-		<div class="row">
+		<div class="row" id="title">
 				<div class="text-center col-lg-12">
 					 <h1 class="">Youtube Manager</h1>
 
@@ -49,7 +49,7 @@ include 'auth.php';
 
                         <div class="col-md-3" id="botsChannels"><?=$botChannels?></div>
 
-                        <div id="vidPlayer">
+                        <div id="vidPlayer" >
                             <?=$newVidsContainer?>
                         </div>
                     </div>

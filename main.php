@@ -1,18 +1,20 @@
 <?php
 
 	include $_SERVER['DOCUMENT_ROOT'].'/userDatas.php';
-	include $_SERVER['DOCUMENT_ROOT'].'/bdd.php';	
+	include $_SERVER['DOCUMENT_ROOT'].'/db.php';
 	include $_SERVER['DOCUMENT_ROOT'] . '/servicesPHP_SQL/BDDTools.php';
 
 
 
     // retrieve Database Connection singleton
-	$bdd=bddConnect::getBdd();
-	
+	$bdd=dbConnect::getDB();
+
 	//retrieve user channelID
-	$myChannel=getMyChannelId($youtube);	
+	$myChannel=getMyChannelId($youtube);
+
 	$_SESSION['myChannel']=$myChannel;
-	
+
+
 	//retrieve user subscriptions
 	$subscriptionsList=mySubscriptions();
 	$_SESSION['chansTab']=$subscriptionsList;
@@ -23,7 +25,7 @@
 		$subscriptionsIds[]=$sub['snippet']['resourceId']['channelId'];
 	}
 	//var_dump($subscriptionsIds);
-	
+
 	// check is user is registered in database, if not, register him
 	checkIsDbUser($myChannel, $bdd);
 	
@@ -34,7 +36,7 @@
 	/////////////  display robots list
 	$bots=$userDatas->getBots();
 
-	affBots($bots);	
+	affBots($bots);
 
     /////////////display subscriptions list
     affSubscriptions($subscriptionsList);
@@ -126,10 +128,7 @@ function affBots($tabBots){
             $htmlBody.='</tr>';
 
             $botChannels.=affBotChannels($row['id']);
-
 		}
-
-		
 	}
 	else
 	{
@@ -149,7 +148,6 @@ function mySubscriptions(){
 	foreach($channelsResponse['items'] as $channel)
 	{
 		$subscriptionsList[]=$channel;
-
 	}	
 	
 	return $subscriptionsList;
@@ -186,13 +184,17 @@ function getMyChannelId(){
 function checkIsDbUser($myChan, $bdd){		
 
 		$sqlreq=$bdd->query('SELECT * FROM user WHERE channelid=\''.$myChan.'\'');
-		
-		$result=$sqlreq->fetch();
-		
-		if (!isset($result['channelid']))
-		{			
-			$sqlreq=$bdd->query('INSERT INTO user(channelid) VALUES (\''. $myChan  . ' \' )' );
-		}		
+
+
+		if ($sqlreq->fetch()==null)
+		{
+			$sqlreq=$bdd->query('INSERT INTO user(channelId) VALUES (\''. $myChan  . ' \' )' );
+		}else
+        {
+
+            $result=$sqlreq->fetch();
+
+        }
 	}
 
 // display a datepicker and a button to change the lastHarvestvalue of a bot in Database

@@ -13,8 +13,8 @@ $botChannels='';
 
 
 /////////////////////// Authentification Oauth
-$OAUTH2_CLIENT_ID ='YOUR_CLIENT_ID';
-$OAUTH2_CLIENT_SECRET = 'YOUR_CLIENT_SECRET';
+$OAUTH2_CLIENT_ID ='973217920762-o75fsne0pg2677lq72jfoa7e4t7ujolm.apps.googleusercontent.com';
+$OAUTH2_CLIENT_SECRET = '5o-Wt8w3A1hvpqDN99_DArbN';
 
 $client = new Google_Client();
 

@@ -8,8 +8,8 @@
 	session_start();
 
 	//récup du singleton bdd
-	include $_SERVER['DOCUMENT_ROOT'] . '/bdd.php';
-	$bdd=bddConnect::getBdd();	
+	include $_SERVER['DOCUMENT_ROOT'] . '/db.php';
+	$bdd=dbConnect::getDb();
 	
 	$_GET[''];
 	try{

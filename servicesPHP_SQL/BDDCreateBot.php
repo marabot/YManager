@@ -10,10 +10,12 @@ $mysubscriptions;
 session_start();
 
  // retrieve Database Connection Singleton
-	include $_SERVER['DOCUMENT_ROOT'] . '/bdd.php';
-	$bdd=bddConnect::getBdd();	
+	include $_SERVER['DOCUMENT_ROOT'] . '/db.php';
+	$bdd=dbConnect::getDb();
 			
 	$myChannel=$_SESSION['myChannel'];
+
+
 	$chansTemp=explode(';',$_GET['chansTab']);
     $name=$_GET['name'];
 
@@ -28,38 +30,40 @@ session_start();
 	function createBot($name){		
 			
 			global $bdd, $myChannel,$chans;
-			$dateCrea=time();
+			$dateCreation=time();
 			$bot=-1;
 
         try{
-            $sqlreqCreateBot=$bdd->exec('INSERT INTO robots(userId,
+            $bdd->exec('INSERT INTO bot (name,
 															lastHarvest,
-															createdate,
-															name
+															createDate,
+															user_id
 															 )
-												VALUES (\''.$myChannel.'\',\''
-                .$dateCrea.'\',\''
-                .$dateCrea.'\',\''
-                .$name .'\') '
+												VALUES (\''.$name.'\',\''
+                .$dateCreation.'\',\''
+                .$dateCreation.'\',\''
+                .$_SESSION['myChannel'] .'\') '
             );
 
-            $sqlreqBotId=$bdd->query('SELECT id FROM robots
-												WHERE userId=\''.$myChannel.'\' AND
-													  createdate=\''.$dateCrea.'\'');
-            $row=$sqlreqBotId->fetch();
+            $sqlreqBotId=$bdd->query('SELECT id FROM bot
+												WHERE user_id=\''.$myChannel.'\' AND
+													  createDate=\''.$dateCreation.'\'');
 
-            if (isset($row['id']))
+           $row=$sqlreqBotId->fetch();
+
+            if (isset($row))
             {
-                $bot=$row['id'];
-                echo $row['id']; // return of this php script  : botId
+                $bot=$row[0];
+                echo $row[0]; // return of this php script  : botId
             }
 
             foreach($chans as $chan)
             {
-                $bdd->exec('INSERT INTO botchannel (botId, channelId, title)
+                $bdd->exec('INSERT INTO botChannel (botId, channelId, title)
 															VALUES (\''.$bot.'\',\''.$chan['channelId'].'\',\''.$chan['title'] .'\')'
                 );
             }
+
         }
         catch(exception $e){
             echo $e;

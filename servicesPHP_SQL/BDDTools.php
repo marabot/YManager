@@ -92,7 +92,7 @@ function orderVideoList($videoList )
 function changeLastHarvest($botId,$newDate)
 {
     global $bdd;
-    $req='UPDATE robots SET lastHarvest='.$newDate.' WHERE id='.$botId.'' ;
+    $req='UPDATE bot SET lastHarvest='.$newDate.' WHERE id='.$botId.'' ;
 
     return $bdd->exec($req);
 

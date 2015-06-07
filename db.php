@@ -8,7 +8,7 @@ class dbConnect {
 	private function __construct(){
 			try
 			{
-            self::$_bdd = new PDO('mysql:host=yourhost;dbname=yourDB;charset=utf8', 'user', 'password');
+            self::$_db = new PDO('mysql:host=127.0.0.1;dbname=ymanager;charset=utf8', 'root', '22hum001');
 			}
 			catch (Exception $e)
 			{

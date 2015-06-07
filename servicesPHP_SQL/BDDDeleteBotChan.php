@@ -1,7 +1,7 @@
 <?php
 // retrieve Database Connection Singleton
-include $_SERVER['DOCUMENT_ROOT'] . '/bdd.php';
-$bdd=bddConnect::getBdd();
+include $_SERVER['DOCUMENT_ROOT'] . '/db.php';
+$bdd=dbConnect::getDb();
 
 session_start();
 

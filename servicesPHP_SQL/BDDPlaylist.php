@@ -9,6 +9,7 @@ require_once '../google-api-php-client/autoload.php';
 		// script pour appel AJAX, crée une playlist et la remplit avec les videos des chaines souscrites
 session_start();
 
+
 	include $_SERVER['DOCUMENT_ROOT'] . '/userDatas.php';
 	include $_SERVER['DOCUMENT_ROOT'] . '/servicesPHP_SQL/BDDTools.php';
 	
@@ -32,8 +33,8 @@ session_start();
 		
 		
 	//récup du singleton bdd		
-	include $_SERVER['DOCUMENT_ROOT'] . '/bdd.php';
-	$bdd=bddConnect::getBdd();	
+	include $_SERVER['DOCUMENT_ROOT'] . '/db.php';
+	$bdd=dbConnect::getDB();
 			
 	$myChannel=$_SESSION['myChannel'];
 	$mysubscriptions=$_SESSION['chansTab'];
@@ -49,6 +50,10 @@ session_start();
 	}
 
 
-echo  $playlistId;
+
+
+//echo  $playlistId;
+
+echo"bliiii";
 
 ?>
